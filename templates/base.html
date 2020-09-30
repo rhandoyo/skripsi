@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+	<title></title>
+  <link rel="stylesheet" type="text/css" href="{% static 'bootstrap.min.css' %}">
+  <link href="/your-path-to-fontawesome/css/all.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+  <link rel="stylesheet" href="{% static 'bootstrap.min.css' %}">
+  <link rel="stylesheet" href="{% static 'stl.css' %}">
+</head>
+<body class="bg-dark">
+
+ <nav class="navbar navbar-expand-lg navbar-light fixed-top bg-default shadow-sm p-3 mb-5 bg-default rounded">
+  <a class="navbar-brand font-weight-bold" href="{% url 'app_akuntansi:dashboard' %}">
+    <img style="height: 50px;"  width="60px" src="{% static 'logohome.png' %}" alt="">
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item dropdown ml-lg-4">
+        <a style="color: white;" class="nav-link dropdown-toggle font-weight-bold" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Master
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href=""><b>Customer</b></a>
+          <a class="dropdown-item" href="{% url 'app_akuntansi:customer' %}">Customer</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#"><b>Suplier</b></a>
+          <a class="dropdown-item" href="{% url 'app_akuntansi:suplier' %}">Suplier</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#"><b>Akun</b></a>
+          <a class="dropdown-item" href="{% url 'app_akuntansi:kode_akun' %}">Kode Akun</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#"><b>Barang</b></a>
+          <a class="dropdown-item" href="{% url 'app_akuntansi:item' %}">Item Barang</a>
+        </div>
+      </li>
+      <li class="nav-item dropdown ml-3">
+        <a style="color:white;" class="nav-link dropdown-toggle font-weight-bold" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Transaksi
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#"><b>Uang Keluar</b></a>
+          <a class="dropdown-item" href="{% url 'app_akuntansi:pembelian' %}">Pembelian</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#"><b>Uang Masuk</b></a>
+          <a class="dropdown-item" href="#">Penjualan</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#"><b>Jurnal</b></a>
+          <a class="dropdown-item" href="#">Jurnal Umum</a>
+        </div>
+      </li>
+      <li class="nav-item dropdown ml-3">
+        <a style="color: white;" class="nav-link dropdown-toggle font-weight-bold" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Laporan
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#"><b>Penjualan</b></a>
+          <a class="dropdown-item" href="#">Berdasarkan Invoice</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#"><b>Pembelian</b></a>
+          <a class="dropdown-item" href="#">Berdasarkan Tagihan</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#"><b>Stok</b></a>
+          <a class="dropdown-item" href="#">Available Stock</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#"><b>Keuangan</b></a>
+          <a class="dropdown-item" href="#">Jurnal</a>
+          <a class="dropdown-item" href="#">Buku Besar</a>
+          <a class="dropdown-item" href="#">Neraca Saldo</a>
+          <a class="dropdown-item" href="#">Laba Rugi</a>
+          <a class="dropdown-item" href="#">Neraca</a>
+        </div>
+      </li>
+    </ul>
+    <i class="fas fa-user"></i>
+</nav>
+</div><br><br><br>
+<!-- content -->
+<div class="container-fluid mt-4">
+    <div style="height:45px; background-color: rgb(225, 235, 231)" class="p-2 mb-4 rounded">
+        <a class="nav-link p-1 font-weight-bold pt-0" href="{% url 'app_akuntansi:dashboard' %}" title="">Dashboard / {{head}}</a><br>
+    </div>
+    {% block content_body %}
+        
+    {% endblock  %}
+</div>
+ 
+
+<script src="{% static 'jquery.js' %}"></script>
+<script src="{% static 'popper.js' %}"></script>
+<script src="{% static 'bootstrap.js' %}"></script>
+
+</body>
+</html>

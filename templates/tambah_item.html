@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content_body %}
+<div class="card">
+    <div class="card-header" style="height: 50px;">
+		<h4>{{head}}</h4>
+    </div>
+    <div class="card-body">
+        <form method="POST">
+            {% csrf_token %}
+            <div class="form-group row">
+                <label for="nama" class="col-sm-2 col-form-label">Kode Item</label>
+                <div class="col-sm-4">
+                    <input name="kode_item" required="true" class="form-control" type="text" id="kode_item">
+                </div>
+                <div class="col-sm-5"></div>
+            </div>
+            <div class="form-group row">
+                <label for="email" class="col-sm-2 col-form-label">Nama item</label>
+                <div class="col-sm-4">
+                    <input name="nama_item" class="form-control" type="text" id="nama_item">
+                </div>
+                <div class="col-sm-5"></div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label" for="uom">Uom</label>
+                <div class="col-sm-4">
+                    <input required="true" name="uom" class="form-control" type="text" id="uom">
+                </div>
+                <div class="col-sm-5"></div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label" for="telp">Harga Beli</label>
+                <div class="col-sm-4">
+                    <input class="form-control" name="harga_beli" type="text" id="harga_beli">
+                </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label" for="telp">Harga Jual</label>
+              <div class="col-sm-4">
+                  <input class="form-control" name="harga_jual" type="text" id="harga_jual">
+              </div>
+          </div>
+            <a style="margin-left: 172px; text-decoration: none;" href="{% url 'app_akuntansi:item' %}">Batal</a>
+            <button class="btn btn-primary ml-2" type="submit">Submit</button>
+        </form>
+    </div>
+</div>
+{% endblock  %}
+    

@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content_body %}
+<div class="card">
+    <div class="card-header" style="height: 50px;">
+		<h4>{{head}}</h4>
+    </div>
+    <div class="card-body">
+        <form method="POST">
+            {% csrf_token %}
+            <div class="form-group row">
+                <label for="kode_akun" class="col-sm-2 col-form-label">Kode akun</label>
+                <div class="col-sm-4">
+                    <input name="kode_akun" required="true" class="form-control" type="text" id="kode_akun">
+                </div>
+                <div class="col-sm-4"></div>
+            </div>
+            <div class="form-group row">
+                <label for="nama" class="col-sm-2 col-form-label">Nama</label>
+                <div class="col-sm-4">
+                    <input name="nama" class="form-control" type="text" id="nama">
+                </div>
+                <div class="col-sm-4"></div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label" for="telp">Saldo Normal</label>
+                <div class="col-sm-4">
+                    <select class="form-control" name="saldo_normal" id="">
+                      <option value="Debit">Debit</option>
+                      <option value="Kredit">Kredit</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label" for="a_p">Akun Pembayaran</label>
+                <div class="col-sm-4">
+                    <select class="form-control" name="akun_pembayaran" id="a_p">
+                      <option value="Y">Y</option>
+                      <option value="N">N</option>
+                    </select>
+                </div>
+            </div>
+            <a style="margin-left: 171px;text-decoration: none;" href="{% url 'app_akuntansi:kode_akun' %}">Batal</a>
+            <button class="btn btn-primary ml-2" type="submit">Submit</button>
+        </form>
+    </div>
+</div>
+{% endblock  %}
+    

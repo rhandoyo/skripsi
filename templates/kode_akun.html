@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content_body %}
+<div class="card">
+  <div class="card-header" style="height: 50px;">
+    <h4>{{head}}</h4>
+  </div>
+  <div class="card-body">
+  <div class="row ">
+      <div class="col-sm-6">
+        <button
+         type="button"
+          class="btn btn-success shadow">
+          <a href="{% url 'app_akuntansi:tambah_kode_akun' %}">
+            <i class="fas fa-pen"></i>
+            Tambah Data <strong>+</strong></a>
+        </button>
+
+        <div class="dropdown">
+          <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            10
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+            <button class="dropdown-item" type="button">1</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div style="margin-left: 530px;" class="dropdown tools">
+        <button class="btn btn-secondary dropdown-toggle shadow" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          TOOLS
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+          <button class="dropdown-item" type="button">CETAK PDF</button>
+          <button class="dropdown-item" type="button">CETAK Excel</button>
+        </div>
+        </div>
+      </div>
+    </div>
+    <table class="table table-light mt-4">
+      <thead>
+        <tr>
+          <th scope="col">Kode Akun</th>
+          <th scope="col">Nama Akun</th>
+          <th scope="col">Saldo Normal</th>
+          <th scope="col">Akun Pembayaran</th>
+          <th scope="col">Aksi</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+        {% for kode_akun in kode_akun  %}
+          <tr>
+            <td>{{kode_akun.kode_akun}}</td>
+            <td>{{kode_akun.nama}}</td>
+            <td>{{kode_akun.saldo_normal}}</td>
+            <td>{{kode_akun.akun_pembayaran}}</td>
+            <td><a class="btn btn-success" href="{% url 'app_akuntansi:edit_kode_akun' id_input=kode_akun.id %}">
+                <i class="far fa-edit"></i>
+                Edit</a>
+              <a class="btn btn-danger" href="{% url 'app_akuntansi:kode_akun_delete' id_input=kode_akun.id %}">
+                <i class="far fa-trash-alt"></i>
+                Delete</a></td></td>
+          </tr>
+        {% endfor %}
+        
+      </tbody>
+    </table>
+  </div>
+</div>
+
+{% endblock  %}
+
+  
+
+

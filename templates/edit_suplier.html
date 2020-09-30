@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content_body %}
+<div class="card">
+    <div class="card-header" style="height: 50px;">
+		<h4>{{head}}</h4>
+    </div>
+    <div class="card-body">
+        <form method="POST">
+            {% csrf_token %}
+            <div class="form-group row">
+                <label for="nama" class="col-sm-2 col-form-label">Nama</label>
+                <div class="col-sm-5">
+                    <input name="nama" required="true" value="{{supl_edit.nama}}" class="form-control" type="text" id="nama">
+                </div>
+                <div class="col-sm-5"></div>
+            </div>
+            <div class="form-group row">
+                <label for="email" class="col-sm-2 col-form-label">Email</label>
+                <div class="col-sm-5">
+                    <input name="email" class="form-control" value="{{supl_edit.email}}" type="email" id="email">
+                </div>
+                <div class="col-sm-5"></div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label" for="alamat">Alamat</label>
+                <div class="col-sm-5">
+                    <input required="true" name="alamat" value="{{supl_edit.alamat}}" class="form-control" type="text" id="alamat">
+                </div>
+                <div class="col-sm-5"></div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label" for="telp">Telp</label>
+                <div class="col-sm-5">
+                    <input class="form-control" name="telepon" value="{{supl_edit.telp}}" type="text" id="telp">
+                </div>
+            </div>
+            <a style="margin-left: 170px; text-decoration: none;"href="{% url 'app_akuntansi:suplier' %}">Batal</a>
+            <input class="btn btn-primary ml-2" value="Simpan" type="submit">
+        </form>
+    </div>
+</div>
+{% endblock  %}

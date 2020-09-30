@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content_body %}
+	<div class="card">
+		<div class="card-header" style="height: 50px;">
+			<h4>{{head}}</h4>
+		</div>
+		<div class="card-body">
+		<div class="row">
+				<div class="col-sm-6">
+					<button type="button"class="btn btn-success shadow">
+						<a href="{% url 'app_akuntansi:tambah_suplier' %}">
+							<i class="fas fa-pen"></i>
+							Tambah Data <strong>+</strong></b></a>
+					</button>
+
+					<div class="dropdown">
+						<button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							10
+						</button>
+						<div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+							<button class="dropdown-item" type="button">1</button>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-6">
+					<div style="margin-left: 530px;" class="dropdown tools">
+					<button class="btn btn-secondary dropdown-toggle shadow" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						TOOLS
+					</button>
+					<div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+						<button class="dropdown-item" type="button">CETAK PDF</button>
+						<button class="dropdown-item" type="button">CETAK Excel</button>
+					</div>
+					</div>
+				</div>
+			</div>
+			<table class="table table-bordered mt-4">
+				<thead>
+					<tr>
+						<th scope="col">No</th>
+						<th scope="col">Nama</th>
+						<th scope="col">Email</th>
+						<th scope="col">Alamat</th>
+						<th scope="col">Telp</th>
+						<th scope="col">Aksi</th>
+					</tr>
+				</thead>
+				<tbody>
+				{% for suplier in suplier %}
+					<tr>
+						<th scope="row">1</th>
+						<td>{{suplier.nama}}</td>
+						<td>{{suplier.email}}</td>
+						<td>{{suplier.alamat}}</td>
+						<td>{{suplier.telp}}</td>
+						<td><a class="btn btn-success" href="{% url 'app_akuntansi:edit_suplier' id_input=suplier.id %}">
+								<i class="far fa-edit"></i>
+									Edit</a>
+								<a class="btn btn-danger" href="{% url 'app_akuntansi:suplier_delete' id_input=suplier.id %}">
+									<i class="far fa-trash-alt"></i>
+									Delete</a></td>
+					</tr>
+				{% endfor %}
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+{% endblock  %}
+	

@@ -1,0 +1,48 @@
+.form-control-primary {
+    margin: 7px;
+    opacity: 0.5;
+    border-radius: 6px;
+  }
+  
+  .sidebar {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    top: 0;
+    z-index: 100;
+    padding: 70px 0 0 10px;
+    border-right: 2px solid #d3d3d3;
+  
+  }
+  
+  .left-sidebar {
+    position: sticky;
+    top:0;
+    height: calc(100vh - 70px)
+  }
+  
+  .sidebar-nav li .nav-link {
+    color: #339;
+    font-weight: 500;
+  }
+  .navbar-default{
+      background-color: #0F5943;
+      height: 60px;
+  }
+  #samping{
+      background-color:#000000;
+  }
+  .nav-link{
+      color: black;
+  
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  

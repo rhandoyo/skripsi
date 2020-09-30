@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content_body %}
+<div class="card">
+    <div class="card-header" style="height: 50px;">
+		<h4>{{head}}</h4>
+    </div>
+    <div class="card-body">
+        <form method="POST">
+            {% csrf_token %}
+            <div class="form-group row">
+                <label for="kode_item" class="col-sm-2 col-form-label">Kode Item</label>
+                <div class="col-sm-3">
+                    <input name="kode_item" value="{{item_edit.kode_item}}" required="true" class="form-control" type="text" id="kode_item">
+                </div>
+                <div class="col-sm-3"></div>
+            </div>
+            <div class="form-group row">
+                <label for="nama_item" class="col-sm-2 col-form-label">Nama Item</label>
+                <div class="col-sm-3">
+                    <input name="nama_item" value="{{item_edit.nama_item}}" class="form-control" type="text" id="nama_item">
+                </div>
+                <div class="col-sm-3"></div>
+            </div>
+            <div class="form-group row">
+                <label for="uom" class="col-sm-2 col-form-label">Uom</label>
+                <div class="col-sm-3">
+                    <input name="uom" value="{{item_edit.uom}}" class="form-control" type="text" id="uom">
+                </div>
+                <div class="col-sm-3"></div>
+            </div>
+            <div class="form-group row">
+                <label for="harga_beli" class="col-sm-2 col-form-label">Harga Beli</label>
+                <div class="col-sm-3">
+                    <input name="harga_beli" value="{{item_edit.harga_beli}}" class="form-control" type="text" id="harga_beli">
+                </div>
+                <div class="col-sm-3"></div>
+            </div>
+            <div class="form-group row">
+                <label for="harga_jual" class="col-sm-2 col-form-label">Harga Jual</label>
+                <div class="col-sm-3">
+                    <input name="harga_jual" value="{{item_edit.harga_jual}}" class="form-control" type="text" id="harga_jual">
+                </div>
+                <div class="col-sm-3"></div>
+            </div>
+
+            <a style="margin-left: 171px; text-decoration: none;" href="{% url 'app_akuntansi:item' %}">Batal</a>
+            <button class="btn btn-primary ml-2" type="submit">Simpan</button>
+        </form>
+    </div>
+</div>
+{% endblock  %}
+    

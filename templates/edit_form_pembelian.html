@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content_body %}
+<div class="card">
+    <div class="card-header" style="height: 50px;">
+		<h4>{{head}}</h4>
+    </div>
+    <div class="card-body">
+        <form method="POST">
+            {% csrf_token %}
+            <div class="form-group row">
+                <label for="nota_number" class="col-sm-2 col-form-label">Nota Number</label>
+                <div class="col-sm-3">
+                    <input name="nota_number" value="{{form_edit.nota}}" required="true" class="form-control" type="text" id="nota_number">
+                </div>
+                <div class="col-sm-5"></div>
+            </div>
+            <div class="form-group row">
+                <label for="tanggal" class="col-sm-2 col-form-label">Tanggal Masuk</label>
+                <div class="col-sm-3">
+                    <input name="tanggal" value="{{form_edit.tanggal}}" class="form-control" type="date" id="tanggal">
+                </div>
+                <div class="col-sm-5"></div>
+            </div>
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label" for="pemasok">Pemasok</label>
+              <div class="col-sm-3">
+                  <select class="form-control" name="pemasok">
+                    
+                    {% for spl in supliers %}
+                    <option value="{{spl.id}}">{{spl.nama}}</option>
+                    {% endfor %}
+                      
+                  </select>
+              </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-2 col-form-label">
+                  <label class="form-label">ID item</label>
+                </div>
+                <div class="col-sm-3">
+                  <select class="form-control" name="id_item" id="id_barang">
+                    {% for item in items  %}
+                    <option value="{{item.id}}">{{item.kode_item}}</option>
+                    {% endfor %}
+                  </select>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-2">
+                  <label class="form-label">Item Nama</label>
+                </div>
+                <div class="col-sm-3">
+                    <input name="item_nama" value="{{form_edit.nama}}" required="true" class="form-control" type="text" id="item_nama">
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-2">
+                  <label class="form-label">Uom</label>
+                </div>
+                <div class="col-sm-3">
+                    <input name="uom" value="{{form_edit.uom}}" required="true" class="form-control" type="text" id="uom">
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-2">
+                  <label class="form-label">Harga</label>
+                </div>
+                <div class="col-sm-3">
+                    <input name="harga" value="{{form_edit.harga}}" required="true" class="form-control" type="text" id="harga">
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-2">
+                  <label class="form-label">Quantity</label>
+                </div>
+                <div class="col-sm-3">
+                    <input name="quantity" value="{{form_edit.quantity}}" required="true" class="form-control" type="text" id="quantity">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-2">
+                    <a style="margin-left: 150px;" href="{% url 'app_akuntansi:form_transaksi_pembelian' %}">Batal</a>
+                </div>
+                <div class="col-sm-3">
+                  <input class="btn btn-primary ml-2" value="Simpan" type="submit">   
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock  %}
+    

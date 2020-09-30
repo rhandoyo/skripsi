@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content_body %}
+	<div class="card">
+		<div class="card-header" style="height: 50px;">
+			<h4>{{head}}</h4>
+		</div>
+		<div class="card-body">
+      <div class="row">
+          <div class="col-sm-6">
+            <button type="button"
+              class="btn btn-success shadow">
+              <a style="text-decoration: none;" href="{% url 'app_akuntansi:form_transaksi_pembelian' %}">
+              <i class="fas fa-pen"></i>
+              Tambah Data <strong>+</strong></a>
+            </button>
+
+            <div class="dropdown">
+              <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                10
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                <button class="dropdown-item" type="button">1</button>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div style="margin-left: 530px;" class="dropdown tools">
+              <button class="btn btn-secondary dropdown-toggle shadow" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+               TOOLS
+            </button>
+            <div style="background-color: white;"class="dropdown-menu" aria-labelledby="dropdownMenu2">
+              <button class="dropdown-item text-dark" type="button">CETAK PDF</button>
+              <button class="dropdown-item text-dark" type="button">CETAK Excel</button>
+            </div>
+           </div>
+          </div>
+			</div>
+			<table class="table table-bordered mt-4">
+				<thead>
+					<tr>
+						<th scope="col">Status</th>
+						<th scope="col">Tanggal</th>
+						<th scope="col">Suplier</th>
+						<th scope="col">Total</th>
+						<th scope="col">Sudah Dibayar</th>
+						<th scope="col">Sisa</th>
+					</tr>
+				</thead>
+				<tbody>
+          
+          {% for pembelian in pembelians  %}       
+            <tr>
+              <td><a href="">{{pembelian.status}}</a></td>
+              <td>{{pembelian.tanggal}}</td>
+              <td>{{pembelian.pemasok}}</td>
+              <td>{{pembelian.total}}</td>
+              <td>{{pembelian.sudah_dibayar}}</td>
+              <td>{{pembelian.sisa}}</td>
+            </tr>
+          {% endfor %}
+            
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+{% endblock  %}

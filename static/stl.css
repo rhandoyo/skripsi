@@ -1,0 +1,25 @@
+.bg-default {
+    background-color: #CE5C00;  
+    height: 70px;
+}
+
+.btn-secondary{
+    background-color: #888A85;
+    margin-right: 10px;
+}
+.dropdown-menu{
+    background-color: #CE5C00;
+}
+.dropdown-item{
+    color: whitesmoke;
+}
+.col-sm-6{
+    margin-top: 0;
+}
+
+.col-sm-6 button a{
+    color: whitesmoke;
+}
+.tombol{
+    background-color: red;
+}
